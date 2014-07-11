@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711220126) do
+ActiveRecord::Schema.define(version: 20140711221203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140711220126) do
     t.text     "text"
     t.boolean  "favorite"
     t.string   "description"
-    t.integer  "projects_id"
+    t.integer  "project_id"
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,9 +31,14 @@ ActiveRecord::Schema.define(version: 20140711220126) do
     t.string   "name"
     t.string   "description"
     t.boolean  "favorite"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "projects_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
   end
 
   create_table "users", force: true do |t|
@@ -47,10 +52,5 @@ ActiveRecord::Schema.define(version: 20140711220126) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-
-  create_table "users_projects_tables", force: true do |t|
-    t.integer "users_id"
-    t.integer "projects_id"
-  end
 
 end
