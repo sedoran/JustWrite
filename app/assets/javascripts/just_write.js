@@ -14,7 +14,6 @@ window.JustWrite = {
     pages.fetch();
 
     $('.new-page').mouseup(function() {
-      console.log('boo')
       pages.create({name: 'New Page'}); //will be pages.create
     });
   } // end of initialize fn

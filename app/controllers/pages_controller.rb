@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def create
     page = Page.create(page_params)
+    render json: page.to_json
   end
 
   def show

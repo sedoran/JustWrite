@@ -6,7 +6,6 @@ JustWrite.Views.PageView = Backbone.View.extend({
   template: JST['pages/pageTemplate'],
   render: function() {
     var html = (this.template(this.model.attributes));
-    // debugger;
     this.$el.html(html)
             .addClass('page')
             .draggable()
@@ -17,7 +16,9 @@ JustWrite.Views.PageView = Backbone.View.extend({
                 'sw': '#swgrip',
                 'nw': '#nwgrip'               
               }
-            });
+            })
+            .css({'position': 'absolute'});
+    // debugger;
     return this;
   }
 });

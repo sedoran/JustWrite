@@ -27,17 +27,19 @@
 
 .surface {
     position: fixed;
-    height: 50vh;
-    width: 50vw;
-    top: 25%;
-    left: 25%;
+    height: 90vh;
+    width: 83vw;
+    top: 5%;
+    left: 5%;
 }
 
 .page {
     height: 30%;
     width: 30%;
     border: solid 1px darkgrey;
-    position: absolute;
+    position: absolute !important;
+    top: 40%;
+    left: 5%;
     overflow:hidden;
     background-color: white;
 }
