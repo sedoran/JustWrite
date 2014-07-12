@@ -1,4 +1,4 @@
-JustWrite.Views.UsersIndex = Backbone.View.extend({
+JustWrite.Views.UserView = Backbone.View.extend({
 
   template: JST['users/userTemplate']
 

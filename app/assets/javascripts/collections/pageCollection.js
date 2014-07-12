@@ -1,5 +1,6 @@
-JustWrite.Collections.Pages = Backbone.Collection.extend({
+JustWrite.Collections.PageCollection = Backbone.Collection.extend({
 
-  model: JustWrite.Models.Page
+  model: JustWrite.Models.Page,
+  url: '/pages'
 
 });

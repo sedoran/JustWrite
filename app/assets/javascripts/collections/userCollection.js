@@ -1,4 +1,4 @@
-JustWrite.Collections.Users = Backbone.Collection.extend({
+JustWrite.Collections.UserCollection = Backbone.Collection.extend({
 
   model: JustWrite.Models.User
 

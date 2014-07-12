@@ -1,4 +1,4 @@
-JustWrite.Collections.Projects = Backbone.Collection.extend({
+JustWrite.Collections.ProjectCollection = Backbone.Collection.extend({
 
   model: JustWrite.Models.Project
 
