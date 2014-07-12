@@ -34,8 +34,8 @@
 }
 
 .page {
-    height: 100%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     border: solid 1px darkgrey;
     position: absolute;
     overflow:hidden;

@@ -4,7 +4,8 @@ JustWrite.Views.PageListView = Backbone.View.extend({
   },
   render: function() {
     var that = this;
-    this.$el.empty(); // this will get an $el when it's called in app.js
+    this.$el.empty(); 
+    // debugger;
     _.each(this.collection.models, function(page) {
       var pageView = new JustWrite.Views.PageView({
         model: page

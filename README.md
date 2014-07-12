@@ -5,11 +5,12 @@ Just Write is an app that allows you to do exactly what it says: just write. Bla
 ####Languages, Frameworks etc.
 
 * jQuery
+* jQuery-ui
 * Backbone
 * Underscore
 
 ####Relevant Links
 
-* Heroku: justwrite.herokuapp.com
+* Heroku: http://www.justwrite.herokuapp.com
 * Github: https://github.com/pantsonsteven/JustWrite
 * Trello: https://trello.com/b/wLdlIwGs/justwrite

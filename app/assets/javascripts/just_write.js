@@ -11,9 +11,11 @@ window.JustWrite = {
       collection: pages
     });
 
+    pages.fetch();
+
     $('.new-page').mouseup(function() {
       console.log('boo')
-      pages.add({name: ''}); //will be pages.create
+      pages.create({name: 'New Page'}); //will be pages.create
     });
   } // end of initialize fn
 }; // end of object definition
