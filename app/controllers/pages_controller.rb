@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    pages = Page.all 
+    pages = Project.find(params[:id]).pages
     render json: pages.to_json
   end
 

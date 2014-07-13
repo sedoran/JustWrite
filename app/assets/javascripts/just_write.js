@@ -5,17 +5,22 @@ window.JustWrite = {
   Routers: {},
   initialize: function() {
     console.log('Hello from Backbone!');
-    pages = new JustWrite.Collections.PageCollection({});
-    pageListView = new JustWrite.Views.PageListView({
-      el: $('.surface'),
-      collection: pages
+    projects = new JustWrite.Collections.ProjectCollection({});
+    projectListView = new JustWrite.Views.ProjectListView({
+      collection: projects
+      el: $('.project-list')
     });
 
-    pages.fetch();
+    projects.fetch({success: function(){
+      projectListView.render();
+    }});
 
-    $('.new-page').mouseup(function() {
-      pages.create({name: 'New Page'}); //will be pages.create
-    });
+    // TODO: CHANGE THE FUNCTION OF THIS BUTTON
+    // TO INCLUDE GHOST DIV!!
+    // $('.new-page').mouseup(function() {
+    //   pages.create({name: 'New Page'}); 
+    // }); 
+
   } // end of initialize fn
 }; // end of object definition
 
