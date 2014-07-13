@@ -1,3 +1,5 @@
+var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
+
 JustWrite.Views.PageView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "all", this.render);

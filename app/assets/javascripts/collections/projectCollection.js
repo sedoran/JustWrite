@@ -1,5 +1,5 @@
 JustWrite.Collections.ProjectCollection = Backbone.Collection.extend({
-  url: '/projects'
+  url: '/projects',
   model: JustWrite.Models.Project
 
 });

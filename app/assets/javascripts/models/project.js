@@ -1,3 +1,5 @@
+var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
+
 JustWrite.Models.Project = Backbone.Model.extend({
   initialize: function() {
     var pagesUrl = '/projects/'+this.get('id')+'/pages';

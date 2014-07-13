@@ -1,3 +1,5 @@
+var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
+
 JustWrite.Views.ProjectView = Backbone.View.extend({
   tagName: 'li',
   template: JST['projects/projectTemplate'],

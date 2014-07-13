@@ -1,3 +1,4 @@
+var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
 
 JustWrite.Views.ProjectListView = Backbone.View.extend({
   initialize: function() {

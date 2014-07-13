@@ -7,7 +7,7 @@ window.JustWrite = {
     console.log('Hello from Backbone!');
     projects = new JustWrite.Collections.ProjectCollection({});
     projectListView = new JustWrite.Views.ProjectListView({
-      collection: projects
+      collection: projects,
       el: $('.project-list')
     });
 
