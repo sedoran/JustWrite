@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'backbone-on-rails'
 gem 'sorcery'
 gem 'jquery-ui-rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'pry-rails'
