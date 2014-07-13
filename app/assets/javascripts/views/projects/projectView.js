@@ -13,10 +13,11 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click .project-list': 'getPages'
+    'click': 'getPages'
   },
   getPages: function() {
     this.model.get('pages').fetch();
+    console.log('geewiz')
     return this;
   }
 
