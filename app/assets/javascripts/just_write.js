@@ -15,7 +15,9 @@ window.JustWrite = {
       $('.ghost').click(function(e) {
         console.log('bam');
         var pages = window.currentProject.attributes.pages;
-        pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
+        var left = (e.pageX-10).toString() + 'px';
+        var top = (e.pageY-10).toString() + 'px';
+        pages.create({name: 'Grace Jones', left: left, top: top});
         this.remove();
       });
     };
