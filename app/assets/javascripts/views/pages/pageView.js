@@ -19,7 +19,10 @@ JustWrite.Views.PageView = Backbone.View.extend({
                 'nw': '#nwgrip'               
               }
             })
-            .css({'position': 'absolute'});
+            .css({position: 'absolute', 
+                  left: this.model.left, 
+                  top: this.model.top
+                });
     return this;
   }
 });

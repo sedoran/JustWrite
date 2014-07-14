@@ -17,7 +17,6 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   },
   getPages: function() {
     this.model.get('pages').fetch();
-    console.log('geewiz')
     return this;
   }
 

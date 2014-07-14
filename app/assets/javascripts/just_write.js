@@ -15,13 +15,21 @@ window.JustWrite = {
       projectListView.render();
     }});
 
-    // TODO: CHANGE THE FUNCTION OF THIS BUTTON
-    // TO INCLUDE GHOST DIV!!
-    $('.new-page').mouseup(function(e) {
-      
-      $('<div>').css({'top':'0', 'left':'0'})
-      // pages.create({name: 'New Page'}); 
+    $('.new-page').mouseup(function(e){
+      $('body').append('<div class="ghost">');
+      var ghost = $('.ghost');
+      ghost.offset({left:e.pageX-10,top:e.pageY-10}).css({display: 'inline-block'});
     }); 
+
+    $('body').mousemove(function(e){
+      $('.ghost').offset({left:e.pageX-10,top:e.pageY-10});
+    });
+
+    $('.ghost').click(function(e){
+      console.log('ghost click')
+      pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
+      this.remove();
+    });
 
   } // end of initialize fn
 }; // end of object definition

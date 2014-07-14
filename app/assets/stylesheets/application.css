@@ -54,11 +54,16 @@
     width: 83vw;
 }
 
-.placeddiv {
+.ghost {
+    background-color: white;
+    position: absolute;
     height: 30%;
     width: 30%;
     border: solid 1px darkgrey;
     cursor: move;
+    opacity: 0.9;
+    display: none;
+    z-index: 2;
 }
 
 .page {
