@@ -16,7 +16,9 @@ class PagesController < ApplicationController
   end
 
   def update
-    
+    page = Page.find(params[:id])
+    page.update(page_params)
+    render json: page.to_json
   end
 
   def destroy
