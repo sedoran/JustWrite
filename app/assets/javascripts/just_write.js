@@ -5,8 +5,8 @@ window.JustWrite = {
   Routers: {},
   initialize: function() {
     console.log('Hello from Backbone!');
-    projects = new JustWrite.Collections.ProjectCollection({});
-    projectListView = new JustWrite.Views.ProjectListView({
+    var projects = new JustWrite.Collections.ProjectCollection({});
+    var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
       el: $('.project-list')
     });
@@ -23,13 +23,16 @@ window.JustWrite = {
 
     $('body').mousemove(function(e){
       $('.ghost').offset({left:e.pageX-10,top:e.pageY-10});
+      ghostClick();
     });
 
-    $('.ghost').click(function(e){
-      console.log('ghost click')
-      pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
-      this.remove();
-    });
+    function ghostClick() {
+      $('.ghost').click(function(e) {
+        console.log(this);
+        pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
+        this.remove();
+      })
+    }
 
   } // end of initialize fn
 }; // end of object definition
