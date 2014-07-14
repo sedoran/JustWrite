@@ -6,8 +6,9 @@ class PagesController < ApplicationController
   end
 
   def create
-    
+    project = Project.find(params[:project_id])
     page = Page.create(page_params)
+    project.pages << page
     render json: page.to_json
   end
 
