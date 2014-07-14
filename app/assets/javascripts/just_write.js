@@ -26,7 +26,8 @@ window.JustWrite = {
           this.remove();
         } else {
           console.log('twitty!!')
-          newProject = projects.add({name: "New blahhh"});
+          newProject = projects.create({name: "New blahhh"});
+          window.currentProject = newProject;
           var pages = window.currentProject.get('pages');
           pages.create({name: 'Conway Twitty', left: left, top: top});
           this.remove();
@@ -44,6 +45,11 @@ window.JustWrite = {
     ghost.offset({left:e.pageX-10,top:e.pageY-10}).css({display: 'inline-block'});
     ghostClick();
   }); 
+
+  $('.new-project').click(function() {
+    console.log('new project')
+    projects.create({name: "New Project"})
+  });
 
 
   // setInterval(function() {

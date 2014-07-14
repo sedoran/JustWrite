@@ -14,7 +14,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   },
   events: {
     'click p.project-name': 'getPages',
-    'click p.delete-project': 'deleteProject'
+    'click p.delete-project': 'deleteProject',
   },
   getPages: function() {
     this.model.get('pages').fetch();
@@ -26,5 +26,4 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     this.model.destroy();
     $('.surface').empty();
   }
-
 });
