@@ -11,6 +11,15 @@ window.JustWrite = {
       el: $('.project-list')
     });
 
+    function ghostClick() {
+      $('.ghost').click(function(e) {
+        console.log('bam');
+        var pages = window.currentProject.attributes.pages;
+        pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
+        this.remove();
+      });
+    };
+
     projects.fetch({success: function(){
       projectListView.render();
     }});
@@ -19,20 +28,13 @@ window.JustWrite = {
       $('body').append('<div class="ghost">');
       var ghost = $('.ghost');
       ghost.offset({left:e.pageX-10,top:e.pageY-10}).css({display: 'inline-block'});
+      ghostClick();
     }); 
 
     $('body').mousemove(function(e){
       $('.ghost').offset({left:e.pageX-10,top:e.pageY-10});
-      ghostClick();
     });
 
-    function ghostClick() {
-      $('.ghost').click(function(e) {
-        console.log(this);
-        pages.create({name: 'New Page', left: e.pageX-10, top: e.pageY-10});
-        this.remove();
-      })
-    }
 
   } // end of initialize fn
 }; // end of object definition
