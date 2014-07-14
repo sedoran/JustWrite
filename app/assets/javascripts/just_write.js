@@ -17,9 +17,11 @@ window.JustWrite = {
 
     // TODO: CHANGE THE FUNCTION OF THIS BUTTON
     // TO INCLUDE GHOST DIV!!
-    // $('.new-page').mouseup(function() {
-    //   pages.create({name: 'New Page'}); 
-    // }); 
+    $('.new-page').mouseup(function(e) {
+      
+      $('<div>').css({'top':'0', 'left':'0'})
+      // pages.create({name: 'New Page'}); 
+    }); 
 
   } // end of initialize fn
 }; // end of object definition

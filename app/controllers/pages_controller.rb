@@ -16,6 +16,7 @@ class PagesController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy
@@ -24,7 +25,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name)
+    params.require(:page).permit(:name, :text, :description)
   end
 
 end
