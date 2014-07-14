@@ -10,14 +10,14 @@ class ProjectsController < ApplicationController
     render json: project.to_json
   end
 
-  def show
-  end
-
   def update
-    
+
   end
 
   def destroy
+    project = Project.find(params[:id])
+    project.delete
+    render json: project.to_json
   end
   
   private

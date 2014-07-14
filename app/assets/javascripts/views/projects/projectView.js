@@ -13,12 +13,18 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click': 'getPages'
+    'click p.project-name': 'getPages',
+    'click p.delete-project': 'deleteProject'
   },
   getPages: function() {
     this.model.get('pages').fetch();
     window.currentProject = this.model;
     return this;
+  },
+  deleteProject: function() {
+    console.log('delete')
+    this.model.destroy();
+    $('.surface').empty();
   }
 
 });

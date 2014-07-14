@@ -24,6 +24,12 @@ JustWrite.Views.PageView = Backbone.View.extend({
                   top: this.model.attributes.top
                 });
     return this;
+  }, 
+  events: {
+    'click button.delete': 'deletePage'
+  },
+  deletePage: function() {
+    this.model.destroy();
   }
 });
 

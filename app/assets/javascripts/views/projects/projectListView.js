@@ -2,7 +2,7 @@ var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
 
 JustWrite.Views.ProjectListView = Backbone.View.extend({
   initialize: function() {
-    this.listenTo(this.collection, 'change', this.render);
+    this.listenTo(this.collection, 'all', this.render);
   },
   render: function() {
     var that = this;

@@ -12,9 +12,6 @@ class PagesController < ApplicationController
     render json: page.to_json
   end
 
-  def show
-  end
-
   def update
     page = Page.find(params[:id])
     page.update(page_params)
@@ -22,6 +19,9 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    page = Page.find(params[:id])
+    page.delete
+    render json: page.to_json
   end
 
   private
