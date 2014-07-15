@@ -11,6 +11,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
       el: $('body').find('.surface')
     });
     return this;
+    console.log('creating each project view')
   },
   events: {
     'click p.project-name': 'getPages',

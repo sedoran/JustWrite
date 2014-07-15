@@ -13,6 +13,7 @@ JustWrite.Views.PageListView = Backbone.View.extend({
       });
       that.$el.append(pageView.render().el);
     });
+    console.log('creating pagelistview');
   return this;
   } 
 });

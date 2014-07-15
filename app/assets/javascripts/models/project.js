@@ -6,5 +6,6 @@ JustWrite.Models.Project = Backbone.Model.extend({
     var pages = new JustWrite.Collections.PageCollection();
     pages.url = pagesUrl;
     this.set('pages', pages);
+    console.log("initializing project model")
   }
 });
