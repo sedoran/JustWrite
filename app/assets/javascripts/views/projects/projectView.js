@@ -3,6 +3,9 @@ var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
 JustWrite.Views.ProjectView = Backbone.View.extend({
   tagName: 'li',
   template: JST['projects/projectTemplate'],
+  initialize: function(){
+    this.listenTo(this.model, 'destroy', this.remove);
+  },
   render: function() {
     var html = (this.template(this.model.attributes));
     this.$el.html(html).addClass('project');

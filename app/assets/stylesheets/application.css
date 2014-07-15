@@ -57,8 +57,8 @@
 .ghost {
     background-color: white;
     position: absolute;
-    height: 30%;
-    width: 30%;
+    height: 30vw;
+    width: 30vw;
     border: solid 1px darkgrey;
     cursor: move;
     opacity: 0.9;
@@ -67,12 +67,12 @@
 }
 
 .page {
-    height: 30%;
-    width: 30%;
+    height: 30vw;
+    width: 30vw;
     border: solid 1px darkgrey;
     position: absolute !important;
-    top: 40%;
-    left: 5%;
+/*    top: 40%;
+    left: 5%;*/
     overflow:hidden;
     background-color: white;
 }

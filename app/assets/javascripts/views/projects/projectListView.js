@@ -3,7 +3,8 @@ var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
 JustWrite.Views.ProjectListView = Backbone.View.extend({
   initialize: function() {
     this.collection.fetch();
-    this.listenTo(this.collection, 'all', this.render);
+    this.listenTo(this.collection, 'add', this.renderProject);
+    this.listenTo(this.collection, 'change', this.render);
   },
   render: function() {
     var that = this;
@@ -16,5 +17,10 @@ JustWrite.Views.ProjectListView = Backbone.View.extend({
     });
     return this;
     console.log('creating project list view')
+  },
+  renderProject: function(project) {
+    var projectView = new JustWrite.Views.ProjectView({model: project});
+    this.$el.append(projectView.render().el)
+    return this;
   }
 });
