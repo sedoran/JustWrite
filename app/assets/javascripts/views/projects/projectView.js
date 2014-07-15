@@ -21,6 +21,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     'click p.delete-project': 'deleteProject',
   },
   getPages: function() {
+    // $('.surface').emtpy();
     this.model.get('pages').fetch();
     window.currentProject = this.model;
     return this;

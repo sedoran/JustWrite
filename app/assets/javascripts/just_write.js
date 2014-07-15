@@ -17,6 +17,7 @@ window.JustWrite = {
 
         var left = (e.pageX-10).toString();
         var top = (e.pageY-10).toString();
+        console.log("ghost div: "+left+":"+top)
 
         if (window.currentProject != null){
           var pages = window.currentProject.get('pages');
@@ -25,7 +26,6 @@ window.JustWrite = {
           window.currentProject = projects.create(
             { name: "New Project" }, 
             { success: function(data) {
-              // window.currentProject = newProject;
               var pages = window.currentProject.get('pages');
               pages.url = '/projects/'+data.get('id')+'/pages';
               pages.create({ name: 'New Page', left: left, top: top });
@@ -40,7 +40,6 @@ window.JustWrite = {
     function ghostTrack() {
       $('body').mousemove(function(e) {
         $('.ghost').offset({left: e.pageX-10, top: e.pageY-10});
-        console.log(e.pageX+":"+e.pageY);
       });
     };
 

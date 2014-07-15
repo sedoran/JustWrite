@@ -48,7 +48,6 @@
 }
 
 .surface {
-    position: relative;
     float: left;
     height: 100vh;
     width: 83vw;
@@ -58,7 +57,7 @@
     background-color: white;
     position: absolute;
     height: 30vw;
-    width: 30vw;
+    width: 50vh;
     border: solid 1px darkgrey;
     cursor: move;
     opacity: 0.9;
@@ -68,11 +67,9 @@
 
 .page {
     height: 30vw;
-    width: 30vw;
+    width: 50vh;
     border: solid 1px darkgrey;
     position: absolute !important;
-/*    top: 40%;
-    left: 5%;*/
     overflow:hidden;
     background-color: white;
 }

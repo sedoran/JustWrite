@@ -28,7 +28,7 @@ JustWrite.Views.PageView = Backbone.View.extend({
                 'nw': '#nwgrip'               
               }
             });
-    console.log("... page view is being rendered... ")
+    console.log("... page view is being rendered... id: "+this.model.get('id') +" "+ this.model.get('left')+":"+this.model.get('top'))
 
 
     return this;
