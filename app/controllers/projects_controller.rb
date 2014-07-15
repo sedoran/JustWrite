@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
 
   def destroy
     project = Project.find(params[:id])
+    project_pages = project.pages
+    project_pages.each { |page| page.delete }
     project.delete
     render json: project.to_json
   end

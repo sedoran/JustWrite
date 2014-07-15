@@ -13,14 +13,14 @@ JustWrite.Views.ProjectListView = Backbone.View.extend({
       var projectView = new JustWrite.Views.ProjectView({
         model: project
       });
-      that.$el.append(projectView.render().el)
+      that.$el.append(projectView.render().el);
     });
     return this;
-    console.log('creating project list view')
+    // console.log('creating project list view');
   },
   renderProject: function(project) {
     var projectView = new JustWrite.Views.ProjectView({model: project});
-    this.$el.append(projectView.render().el)
+    this.$el.append(projectView.render().el);
     return this;
   }
 });

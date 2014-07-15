@@ -4,22 +4,23 @@ window.JustWrite = {
   Views: {},
   Routers: {},
   initialize: function() {
-    console.log('initializing')
     window.projects = new JustWrite.Collections.ProjectCollection({});
     var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
       el: $('.project-list')
     });
+
+
     window.currentProject = null;
+
 
     function ghostClick() {
       $('.ghost').click(function(e) {
 
         var left = (e.pageX-10).toString();
         var top = (e.pageY-10).toString();
-        console.log("ghost div: "+left+":"+top)
 
-        if (window.currentProject != null){
+        if (window.currentProject != null) {
           var pages = window.currentProject.get('pages');
           var newPage = pages.create({ name: 'New Page', left: left, top: top });
         } else {
@@ -37,11 +38,13 @@ window.JustWrite = {
       });
     };
 
+
     function ghostTrack() {
       $('body').mousemove(function(e) {
         $('.ghost').offset({left: e.pageX-10, top: e.pageY-10});
       });
     };
+
 
     $('.new-page').mouseup(function(e){
       $('body').append('<div class="ghost">');
@@ -52,10 +55,11 @@ window.JustWrite = {
       ghostClick();
     }); 
 
+
     $('.new-project').click(function() {
-      console.log('new project')
       window.projects.create({name: "New Project"})
     });
+
 
 
   // setInterval(function() {

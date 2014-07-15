@@ -14,14 +14,13 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
       el: $('body').find('.surface')
     });
     return this;
-    console.log('creating each project view')
+    // console.log('creating each project view')
   },
   events: {
     'click p.project-name': 'getPages',
     'click p.delete-project': 'deleteProject',
   },
   getPages: function() {
-    // $('.surface').emtpy();
     this.model.get('pages').fetch();
     window.currentProject = this.model;
     return this;
@@ -30,5 +29,6 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     console.log('delete')
     this.model.destroy();
     $('.surface').empty();
+    window.currentProject = null;
   }
 });
