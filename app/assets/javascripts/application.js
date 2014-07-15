@@ -22,3 +22,16 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+// Surface = {
+//   saveCurrentProject: function() {},
+//   openProject: function(project) {},
+//   closeCurentProject: function() {},
+// };
+
+// $('.project-name').on('click', function(e) {
+//   var projectName = $(e).data('name');
+//   Surface.saveCurrentProject();
+//   Surface.closeCurentProject();
+//   Surface.openProject(projectName);
+// })

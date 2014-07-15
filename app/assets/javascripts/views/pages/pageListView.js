@@ -8,22 +8,23 @@ JustWrite.Views.PageListView = Backbone.View.extend({
   },
   render: function() {
     var that = this;
-    this.$el.empty(); 
+    this.$el.empty();
     
     _.each(this.collection.models, function(page) {
       var pageView = new JustWrite.Views.PageView({
         model: page
       });
       that.$el.append(pageView.render().el);
+      console.log('RENDERING PAGE LIST VIEW FOR PROJECT: '+page.get('project_id'));
     });
 
-    console.log('rendering pagelistview');
+
     return this;
   },
   renderPage: function(page) {
     var pageView = new JustWrite.Views.PageView({model: page});
     this.$el.append(pageView.render().el);
-    console.log('creating single pagelistview');
+    console.log('creating single page view: '+ this.$el.attr('id'));
     return this;
   }
 });

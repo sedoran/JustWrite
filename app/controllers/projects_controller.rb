@@ -11,7 +11,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-
+    pageArray =  page_params
+    pageArray.each do |page|
+      Page.find(page['id']).update_attributes(page)
+    end
+    #project = Project.find(params[:project_id])
+    #project.update(project_params)
+    render json: {}
   end
 
   def destroy
@@ -23,6 +29,11 @@ class ProjectsController < ApplicationController
   end
   
   private
+
+  def page_params
+    params.permit(_json: [])
+    # params.require(_json).permit(:name, :text, :description, :project_id, :left, :top, :height, :width, :id)
+  end
 
   def project_params
     params.require(:project).permit(:name)

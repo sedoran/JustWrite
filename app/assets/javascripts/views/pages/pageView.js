@@ -4,10 +4,13 @@ JustWrite.Views.PageView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "change", this.render);
     this.listenTo(this.model, "destroy", this.remove);
-    this.listenTo(this.model, "change", this.savePage)
+    // this.listenTo(this.model, "sync", this.render);
   },
   template: JST['pages/pageTemplate'],
   render: function() {
+
+    var that = this;
+
     var html = (this.template(this.model.attributes));
     this.$el.html(html);
 
@@ -28,31 +31,17 @@ JustWrite.Views.PageView = Backbone.View.extend({
                 'sw': '#swgrip',
                 'nw': '#nwgrip'               
               }
-            });
+            });           
 
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        console.log(mutation.attributeName);
-      });
-    });
-
-    var config = { attributes: true };
-
-
-    observer.observe(this.el, config);
-
-    console.log("... page view is being rendered... ");
+    console.log("... page view is being created... id: "+this.$el.attr('id'));
     return this;
   },
-  savePage: function(page) {
-    console.log('saving page')
-    page.save()
-  }, 
   events: {
     'click button.delete': 'deletePage'
   },
   deletePage: function() {
     this.model.destroy();
+    console.log('page was deleted: '+this.model.get('id'))
   }
 });
 

@@ -4,7 +4,10 @@ window.JustWrite = {
   Views: {},
   Routers: {},
   initialize: function() {
+    console.log('application initializing');
+
     window.projects = new JustWrite.Collections.ProjectCollection({});
+    
     var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
       el: $('.project-list')
@@ -50,7 +53,7 @@ window.JustWrite = {
       $('body').append('<div class="ghost">');
       var ghost = $('.ghost');
       ghost.offset({left:e.pageX-10,top:e.pageY-10})
-           .css({display: 'inline-block'});
+      .css({display: 'inline-block'});
       ghostTrack();
       ghostClick();
     }); 
