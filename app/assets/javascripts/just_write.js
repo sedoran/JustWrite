@@ -8,7 +8,7 @@ window.JustWrite = {
 
     window.projects = new JustWrite.Collections.ProjectCollection({});
     
-    window.projectListView = new JustWrite.Views.ProjectListView({
+    var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
       el: $('.project-list')
     });
@@ -26,6 +26,7 @@ window.JustWrite = {
         if (window.currentProject != null) {
           var pages = window.currentProject.get('pages');
           var newPage = pages.create({ name: 'New Page', left: left, top: top });
+          setEditableElements();          
         } else {
           window.currentProject = projects.create(
             { name: "New Project" }, 
@@ -33,6 +34,7 @@ window.JustWrite = {
               var pages = window.currentProject.get('pages');
               pages.url = '/projects/'+data.get('id')+'/pages';
               pages.create({ name: 'New Page', left: left, top: top });
+              setEditableElements();
             }
           });
         };
@@ -60,6 +62,9 @@ window.JustWrite = {
 
       ghostTrack();
       ghostClick();
+
+
+
     }); 
 
 
@@ -68,6 +73,34 @@ window.JustWrite = {
     });
 
 
+  } // end of initialize fn
+}; // end of object definition
+
+function saveCurrentPages() {
+
+ if (window.currentProject != null && window.currentProject.get('pages').length > 0){
+
+  var pages = window.currentProject.get('pages');
+
+  _.each(pages.models, function(page) {
+
+    var div = $('#'+page.get("id"));
+    var top = (div.position().top).toString();
+    var left = (div.position().left).toString();
+    var height = (div.height()).toString();
+    var width = (div.width()).toString();
+
+    page.set({top: top, left: left, height: height, width: width}, {silent: true});
+
+    console.log('saved saveCurrentPages fn: '+page.get('id'));
+  });
+
+  pages.sync("update", pages);
+
+};
+};
+
+function autoSavePageContent() {
 
   // setInterval(function() {
   //   if (window.currentProject != null){
@@ -87,34 +120,4 @@ window.JustWrite = {
   //   };
   // }, 30000);
 
-
-  } // end of initialize fn
-}; // end of object definition
-
-function saveCurrentPages() {
-
- if (window.currentProject != null && window.currentProject.get('pages').length > 0){
-
-    var pages = window.currentProject.get('pages');
-
-    _.each(pages.models, function(page) {
-
-      var div = $('#'+page.get("id"));
-      var top = (div.position().top).toString();
-      var left = (div.position().left).toString();
-      var height = (div.height()).toString();
-      var width = (div.width()).toString();
-
-      page.set({top: top, left: left, height: height, width: width}, {silent: true});
-
-      console.log('saved saveCurrentPages fn: '+page.get('id'));
-    });
-
-    pages.sync("update", pages);
-
-  };
-};
-
-$(document).ready(function(){
-  JustWrite.initialize();  
-});
+}

@@ -30,6 +30,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
 
     this.model.get('pages').fetch();
     window.currentProject = this.model;
+
     return this;
   },
 

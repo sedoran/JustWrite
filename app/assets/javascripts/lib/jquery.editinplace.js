@@ -453,7 +453,7 @@ $.extend(InlineEditor.prototype, {
 			; // do nothing
 		else if (undefined === newHTML) {
 			// failure; put original back
-			this.reportError("Error: Failed to save value: " + enteredText);
+			// this.reportError("Error: Failed to save value: " + enteredText);
 			this.restoreOriginalValue();
 		}
 		else
