@@ -24,33 +24,13 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   },
 
   getPages: function() {    
-    if (window.currentProject != null && window.currentProject.get("pages").length >0) {
-      this.saveCurrentProjectPages();
+    if (window.currentProject != null && window.currentProject.get("pages").length > 0) {
+      saveCurrentPages();
     };
 
     this.model.get('pages').fetch();
     window.currentProject = this.model;
     return this;
-  },
-
-  saveCurrentProjectPages: function() {
-    var pages = window.currentProject.get('pages');
-      
-      _.each(pages.models, function(page) {
-        console.log('in page loop for page: '+page.get('id'));
-
-        var div = $('#'+page.get("id"));
-        var top = (div.position().top).toString();
-        var left = (div.position().left).toString();
-        var height = (div.height()).toString();
-        var width = (div.width()).toString();
-
-        page.set({top: top, left: left, height: height, width: width}, {silent: true});
-
-        console.log('saved: '+page.get('id'));
-      });
-
-    pages.sync("update", pages);
   },
 
   deleteProject: function() {
