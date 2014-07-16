@@ -24,7 +24,7 @@ JustWrite.Views.PageListView = Backbone.View.extend({
   renderPage: function(page) {
     var pageView = new JustWrite.Views.PageView({model: page});
     this.$el.append(pageView.render().el);
-    console.log('creating single page view: '+ this.$el.attr('id'));
+    console.log('rendering single page view: '+ pageView.model.get('id'));
     return this;
   }
 });

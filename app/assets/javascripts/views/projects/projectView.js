@@ -25,7 +25,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
 
   getPages: function() {    
     if (window.currentProject != null && window.currentProject.get("pages").length > 0) {
-      saveCurrentPages();
+      saveCurrentPageDimensions();
     };
 
     this.model.get('pages').fetch();

@@ -56,8 +56,8 @@
 .ghost {
     background-color: white;
     position: absolute;
-    height: 30vw;
-    width: 50vh;
+    height: 50vh;
+    width: 30vw;
     border: solid 1px darkgrey;
     cursor: move;
     opacity: 0.9;
@@ -66,13 +66,42 @@
 }
 
 .page {
-    height: 30vw;
-    width: 50vh;
+    height: 50vh;
+    width: 30vw;
     border: solid 1px darkgrey;
     position: absolute !important;
     overflow:hidden;
     background-color: white;
 }
 
+.page-header {
+    width: 100%;
+    margin-bottom: 5%;
+}
 
+.pageTextArea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+}
 
+.pageTextField {
+    width: 45%;
+    height: 60%;
+    outline: none;
+    border: none;
+    float: left;
+    display: inline-block;
+}
+
+.page-delete {
+    width: 45%;
+    float: left;
+    display: inline-block;
+}
+
+.text {
+    height: 75%;
+    overflow: auto;
+}

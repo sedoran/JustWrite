@@ -264,11 +264,9 @@ $.extend(InlineEditor.prototype, {
 		if ("select" === this.settings.field_type)
 			editor = this.createSelectEditor();
 		else if ("text" === this.settings.field_type)
-			editor = $('<input type="text" ' + this.inputNameAndClass() 
-				+ ' size="' + this.settings.text_size  + '" />');
+			editor = $('<input type="text" name="inplace_value" class="inplace_field pageTextField" size="' + this.settings.text_size  + '" />');
 		else if ("textarea" === this.settings.field_type)
-			editor = $('<textarea ' + this.inputNameAndClass() 
-				+ ' rows="' + this.settings.textarea_rows + '" '
+			editor = $('<textarea name="inplace_value" class="inplace_field pageTextArea" rows="' + this.settings.textarea_rows + '" '
 				+ ' cols="' + this.settings.textarea_cols + '" />');
 		
 		return editor;
