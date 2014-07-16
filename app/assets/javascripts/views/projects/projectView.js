@@ -6,6 +6,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, 'destroy', this.remove);
   },
+
   render: function() {
     var html = (this.template(this.model.attributes));
     this.$el.html(html).addClass('project');
@@ -16,10 +17,12 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     console.log('creating project view: '+this.model.get('id'));
     return this;    
   },
+
   events: {
     'click p.project-name': 'getPages',
     'click p.delete-project': 'deleteProject',
   },
+
   getPages: function() {    
     if (window.currentProject != null){
       this.saveCurrentProjectPages();
@@ -35,16 +38,20 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
       
       _.each(pages.models, function(page) {
         console.log('in page loop for page: '+page.get('id'));
+
         var div = $('#'+page.get("id"));
-        var top = div.position().top;
-        var left = div.position().left;
-        var height = div.height();
-        var width = div.width();
+        var top = (div.position().top).toString();
+        var left = (div.position().left).toString();
+        var height = (div.height()).toString();
+        var width = (div.width()).toString();
+
         page.set({top: top, left: left, height: height, width: width}, {silent: true});
+
         console.log('saved: '+page.get('id'));
       });
-      pages.sync("update", pages);
-    },
+
+    pages.sync("update", pages);
+  },
 
   deleteProject: function() {
     console.log('deleted project: '+this.model.get('id'))

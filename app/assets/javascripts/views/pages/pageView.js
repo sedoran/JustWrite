@@ -4,8 +4,8 @@ JustWrite.Views.PageView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "change", this.render);
     this.listenTo(this.model, "destroy", this.remove);
-    // this.listenTo(this.model, "sync", this.render);
   },
+
   template: JST['pages/pageTemplate'],
   render: function() {
 
@@ -36,9 +36,11 @@ JustWrite.Views.PageView = Backbone.View.extend({
     console.log("... page view is being created... id: "+this.$el.attr('id'));
     return this;
   },
+
   events: {
     'click button.delete': 'deletePage'
   },
+
   deletePage: function() {
     this.model.destroy();
     console.log('page was deleted: '+this.model.get('id'))

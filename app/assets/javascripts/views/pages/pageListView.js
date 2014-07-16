@@ -18,7 +18,6 @@ JustWrite.Views.PageListView = Backbone.View.extend({
       console.log('RENDERING PAGE LIST VIEW FOR PROJECT: '+page.get('project_id'));
     });
 
-
     return this;
   },
   renderPage: function(page) {

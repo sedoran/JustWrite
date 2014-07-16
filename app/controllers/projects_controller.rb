@@ -11,9 +11,9 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    pageArray =  page_params
-    pageArray.each do |page|
-      Page.find(page['id']).update_attributes(page)
+    page_array = params[:_json]
+    page_array.each_with_index do |page, index|
+      Page.find(page['id']).update_attributes(page_params['_json'][index])
     end
     #project = Project.find(params[:project_id])
     #project.update(project_params)
@@ -31,8 +31,7 @@ class ProjectsController < ApplicationController
   private
 
   def page_params
-    params.permit(_json: [])
-    # params.require(_json).permit(:name, :text, :description, :project_id, :left, :top, :height, :width, :id)
+    params.permit(:_json => [:id, :name, :text, :description, :project_id, :left, :top, :height, :width, :parent_id, :created_at, :updated_at])
   end
 
   def project_params
@@ -40,3 +39,42 @@ class ProjectsController < ApplicationController
   end
 
 end
+
+
+
+# {
+#   "_json" => [
+#       {
+#         "id" => 59,
+#         "name" => "Chapter 2",
+#         "text" => nil,
+#         "description" => nil,
+#         "project_id" => 63,
+#         "parent_id" => nil,
+#         "created_at" => "2014-07-15T01:46:00.927Z",
+#         "updated_at" => "2014-07-15T23:18:02.604Z",
+#         "left" => "660",
+#         "top" => "101",
+#         "height" => "196",
+#         "width" => "370"
+#       },  
+#       {
+#         "id" => 58,
+#         "name" => "Chapter 1",
+#         "text" => nil,
+#         "description" => nil,
+#         "project_id" => 63,
+#         "parent_id" => nil,
+#         "created_at" => "2014-07-15T01:45:59.373Z",
+#         "updated_at" => "2014-07-15T23:18:02.615Z",
+#         "left" => "221",
+#         "top" => "70",
+#         "height" => "247",
+#         "width" => "344"
+#       }
+#   ],
+#   "controller" => "projects",
+#   "action" => "update",
+#   "project_id" => "63",
+#   "project" => {}
+# }
