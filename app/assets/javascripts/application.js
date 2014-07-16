@@ -15,6 +15,8 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
+//= jquery-migrate-1.2.1
+//= jquery.editinplace
 //= require just_write
 //= require_tree ../templates
 //= require_tree ./models
