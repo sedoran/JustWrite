@@ -30,7 +30,7 @@ JustWrite.Views.PageView = Backbone.View.extend({
   },
 
   events: {
-    'click button.delete': 'deletePage'
+    'click .page-delete': 'deletePage'
   },
 
   deletePage: function() {
