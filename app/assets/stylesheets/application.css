@@ -74,17 +74,5 @@
     background-color: white;
 }
 
-#nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border: 1px solid darkgrey;
-}
-
-#segrip {
-    right: -5px;
-    bottom: -5px;
-}
-
 
 

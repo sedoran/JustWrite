@@ -24,7 +24,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   },
 
   getPages: function() {    
-    if (window.currentProject != null){
+    if (window.currentProject != null && window.currentProject.get("pages").length >0) {
       this.saveCurrentProjectPages();
     };
 
@@ -33,7 +33,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     return this;
   },
 
-  saveCurrentProjectPages: function saveCurrentProjectPages() {
+  saveCurrentProjectPages: function() {
     var pages = window.currentProject.get('pages');
       
       _.each(pages.models, function(page) {
