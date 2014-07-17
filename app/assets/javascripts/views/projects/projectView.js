@@ -54,7 +54,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   deleteProject: function() {
     console.log('deleted project: '+this.model.get('id'));
     this.model.destroy();
-    if (window.currentProject === this.Models){
+    if (window.currentProject === this.model){
       $('.project-title').empty();
       $('.surface').empty(); 
     }
