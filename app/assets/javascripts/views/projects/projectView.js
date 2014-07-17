@@ -23,28 +23,33 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
 
   events: {
     'click p.project-name': 'getPages',
+    'click p.project-title': 'editProjectName',
     'click p.delete-project': 'deleteProject',
   },
 
   getPages: function() {    
-    if (window.currentProject != null && window.currentProject.get("pages").length > 0) {
+    if (window.currentProject != null) {
+      $('.project-title').remove();
       saveCurrentPageDimensions();
-      debugger;
       window.currentProject = this.model;
     } else {
-      debugger;
       window.currentProject = this.model;
     };
 
     this.model.get('pages').fetch({silent: true});
 
-    $('.project-name').removeClass('editable');
-    this.$el.find('.project-name').addClass('editable');
-
-    setEditableElements();
+    $('header').append('<h2 class="project-title title editable">');
+               
+    $('.project-title').html(window.currentProject.get('name'));
 
     store.clear(); 
+    setEditableElements();
     return this;
+  },
+
+  editProjectName: function() {
+
+    setEditableElements();
   },
 
   deleteProject: function() {
