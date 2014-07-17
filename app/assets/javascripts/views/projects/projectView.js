@@ -33,6 +33,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
       saveCurrentPageDimensions();
       window.currentProject = this.model;
     } else {
+      $('.project-title').remove();
       window.currentProject = this.model;
     };
 
