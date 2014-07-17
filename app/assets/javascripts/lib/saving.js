@@ -42,7 +42,7 @@ function saveHTMLText(enteredText, pageID) {
   });
 
   activePage.save({text: enteredTextHTML},
-            {silent: true},
+            // {silent: true},
             {success: function(page, response) {
               console.log('***page text successfully saved: '+page.id);
             }}

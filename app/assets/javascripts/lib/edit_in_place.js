@@ -29,10 +29,11 @@ function setEditableElements() {
       var pageID = parseInt(page.parentElement.id);
 
       $(this).editInPlace({
+        use_html: true,
         field_type: "textarea",
         default_text: "Click anywhere in this window to start writing...",
         callback: function(unused, enteredText) {
-          saveCurrentPageDimensions({silent: true});
+          saveCurrentPageDimensions();
           saveHTMLText(enteredText, pageID);
         }
       });

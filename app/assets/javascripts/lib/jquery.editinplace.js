@@ -216,11 +216,18 @@ $.extend(InlineEditor.prototype, {
 		return 0 !== elementsMatchingCancelSelector.length;
 	},
 	
+	// Steven: I hacked this function so that <br> elements would be replaces with \n.
+	// This meant line breaks would be visible in both the html view of the edit-in-place
+	// window and the form view
 	saveOriginalValue: function() {
-		if (this.settings.use_html)
-			this.originalValue = this.dom.html();
-		else
+		debugger;
+		if (this.settings.use_html) {
+			var tempValue = this.dom.html();
+			var regex = /<br\s*[\/]?>/gi;
+			this.originalValue = tempValue.replace(regex, '\n');
+		} else {
 			this.originalValue = trim(this.dom.text());
+		};	
 	},
 	
 	restoreOriginalValue: function() {
