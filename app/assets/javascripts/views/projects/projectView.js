@@ -40,7 +40,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     this.model.get('pages').fetch({silent: true});
 
     $('header').append('<h2 class="project-title title editable">');
-               
+
     $('.project-title').html(window.currentProject.get('name'));
 
     store.clear(); 
@@ -56,7 +56,10 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   deleteProject: function() {
     console.log('deleted project: '+this.model.get('id'));
     this.model.destroy();
-    $('.surface').empty();
+    if (window.currentProject === this){
+      $('.surface').empty(); 
+    }
+    $('.project-title').remove();
     window.currentProject = null;
   }
 });
