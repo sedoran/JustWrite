@@ -8,11 +8,12 @@ window.JustWrite = {
 
     window.projects = new JustWrite.Collections.ProjectCollection({});
     window.currentProject = null;
-
+      
     var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
-      el: $('.projects-list')
+      el: $('.project-list')
     });
+
 
 
     $('.new-page').mouseup(function(e){
