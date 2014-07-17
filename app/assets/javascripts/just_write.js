@@ -11,7 +11,7 @@ window.JustWrite = {
 
     var projectListView = new JustWrite.Views.ProjectListView({
       collection: projects,
-      el: $('.project-list')
+      el: $('.projects-list')
     });
 
 

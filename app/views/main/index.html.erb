@@ -6,7 +6,7 @@
     autoSavePageContent(); 
   });
 
-  window.onbeforeunload = function() {
+  window.unload = function() {
     saveCurrentPageDimensions({async:false});
 
     _.each($('.text'), function(div) {
