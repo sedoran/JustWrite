@@ -102,6 +102,7 @@ h3 {
     height: 500px;
     float: right;
     margin-top: 1%;
+    overflow: hidden;
 }
 
 .clear {
@@ -113,11 +114,12 @@ h3 {
 
 .projects {
     overflow: auto;
-    max-height: 80%;
+    height: 70%;
     margin-bottom: 5%;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700; 
     font-size: 1em;
+    position: relative;
 }
 
 ul {
