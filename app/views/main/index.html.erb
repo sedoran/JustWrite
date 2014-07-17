@@ -6,14 +6,14 @@
     autoSavePageContent(); 
   });
 
-  // window.onbeforeunload = function() {
-  //   saveCurrentPageDimensions({async:false});
+  window.onbeforeunload = function() {
+    saveCurrentPageDimensions({async:false});
 
-  //   _.each($('.text'), function(div) {
-  //     var text = div.text();
-  //     var pageID = div.parentsUntil('.page').id;
-  //     saveHTMLText(text, pageID);
-  //   });
-  // };
+    _.each($('.text'), function(div) {
+      var text = div.text();
+      var pageID = div.parentsUntil('.page').id;
+      saveHTMLText(text, pageID);
+    });
+  };
 
 </script> 

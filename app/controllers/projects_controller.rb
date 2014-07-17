@@ -10,14 +10,18 @@ class ProjectsController < ApplicationController
     render json: project.to_json
   end
 
-  def update
+  def update_pages
     page_array = params[:_json]
     page_array.each_with_index do |page, index|
       Page.find(page['id']).update_attributes(page_params['_json'][index])
     end
-    #project = Project.find(params[:project_id])
-    #project.update(project_params)
     render json: {}
+  end
+
+  def update
+    project = Project.find(params[:id])
+    project.update(project_params)
+    render json: project.to_json
   end
 
   def destroy

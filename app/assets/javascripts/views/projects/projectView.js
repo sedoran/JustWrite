@@ -3,6 +3,7 @@ var JustWrite = JustWrite || { Models: {}, Views: {}, Collections: {} };
 JustWrite.Views.ProjectView = Backbone.View.extend({
   tagName: 'li',
   template: JST['projects/projectTemplate'],
+  
   initialize: function(){
     this.listenTo(this.model, 'destroy', this.remove);
   },
@@ -28,16 +29,26 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   getPages: function() {    
     if (window.currentProject != null && window.currentProject.get("pages").length > 0) {
       saveCurrentPageDimensions();
+      debugger;
+      window.currentProject = this.model;
+    } else {
+      debugger;
+      window.currentProject = this.model;
     };
-    store.clear();
-    this.model.get('pages').fetch({silent: true});
-    window.currentProject = this.model;
 
+    this.model.get('pages').fetch({silent: true});
+
+    $('.project-name').removeClass('editable');
+    this.$el.find('.project-name').addClass('editable');
+
+    setEditableElements();
+
+    store.clear(); 
     return this;
   },
 
   deleteProject: function() {
-    console.log('deleted project: '+this.model.get('id'))
+    console.log('deleted project: '+this.model.get('id'));
     this.model.destroy();
     $('.surface').empty();
     window.currentProject = null;

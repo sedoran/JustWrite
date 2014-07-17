@@ -40,8 +40,14 @@ function setEditableElements() {
     }); // end of pageContents
 
 
-    var projectNames = $('.project-name');
-    
+    var projectName = $('.editable');
+    var project = window.currentProject;
+    projectName.editInPlace({
+      default_text: "New Project...",
+      callback: function(unused, enteredText) {
+        project.save({name: enteredText})
+      }
+    }); // end of projectName
 
   }; // end of if
 }; //end of setEditableElements
