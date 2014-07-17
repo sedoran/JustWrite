@@ -56,10 +56,12 @@ header {
 
 .project-title {
     text-align: center;
+    width: 30%;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400; 
     font-size: 2em;
-    margin: -30px;
+    margin-top: -30px;
+    margin: 0 auto;
 }
 
 h2, h3 {
@@ -175,8 +177,7 @@ ul {
     resize: none;
     outline: none;
     border: none;
-    font-family: 'Ubuntu Mono', monospace;
-    font-weight: 400; 
+    font-family: 'Fira Mono', monospace; 
     font-size: 18px;
 }
 
@@ -185,12 +186,12 @@ ul {
     height: 60%;
     outline: none;
     border: none;
-    float: left;
+    margin: 0 auto;
     display: inline-block;
 }
 
+
 .page-delete {
-    width: 45%;
     float: left;
     display: inline-block;
 }
@@ -198,7 +199,7 @@ ul {
 .text {
     height: 75%;
     overflow: auto;
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: 'Fira Mono', monospace;
     font-weight: 400; 
     font-size: 18px;
 }
