@@ -16,8 +16,6 @@
 //= require underscore
 //= require backbone
 //= require just_write
-//= require edit_in_place
-//= require saving
 //= require_tree ./lib
 //= require_tree ../templates
 //= require_tree ./models

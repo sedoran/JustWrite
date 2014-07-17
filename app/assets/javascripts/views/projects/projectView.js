@@ -10,10 +10,12 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   render: function() {
     var html = (this.template(this.model.attributes));
     this.$el.html(html).addClass('project');
+
     var pageListView = new JustWrite.Views.PageListView({
       collection: this.model.get('pages'),
       el: $('body').find('.surface')
     });
+    
     console.log('creating project view: '+this.model.get('id'));
     return this;    
   },
