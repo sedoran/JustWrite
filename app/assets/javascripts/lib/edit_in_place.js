@@ -10,7 +10,16 @@ function setEditableElements() {
         field_type: "text",
         default_text: "New Page...",
         callback: function(unused, enteredText) {
-          saveHTMLText(enteredText, pageID)
+          var activePage = _.find(window.currentProject.get('pages').models, function(page) {
+              return page.id === pageID;
+            });
+
+          activePage.save({name: enteredText},
+                    {success: function(page, response) {
+                      console.log('***page text/header successfully saved: '+page.id);
+                    }},
+                    {silent: true}
+          );
         }
       });
     }); // end of pageHeaders

@@ -26,7 +26,7 @@ function autoSavePageContent() {
 
     if ($('.pageTextArea').length != 0) { 
       var enteredText = $('.pageTextArea').val();
-      var pageID = $('.pageTextArea')[0].parentsUntil('.page').id;
+      var pageID = parseInt($($('.pageTextArea')[0]).parents('.page')[0].id);
 
       saveHTMLText(enteredText, pageID);
     };
@@ -44,7 +44,8 @@ function saveHTMLText(enteredText, pageID) {
   activePage.save({text: enteredTextHTML},
             {success: function(page, response) {
               console.log('***page text/header successfully saved: '+page.id);
-            }}
+            }},
+            {silent: true}
   );
 };// end of saveHTMlText
 
