@@ -15,10 +15,10 @@ function setEditableElements() {
             });
 
           activePage.save({name: enteredText},
+                    // {silent: true},
                     {success: function(page, response) {
-                      console.log('***page text/header successfully saved: '+page.id);
-                    }},
-                    {silent: true}
+                      console.log('***page header successfully saved: '+page.id);
+                    }}
           );
         }
       });
@@ -32,6 +32,7 @@ function setEditableElements() {
         field_type: "textarea",
         default_text: "Click anywhere in this window to start writing...",
         callback: function(unused, enteredText) {
+          saveCurrentPageDimensions({silent: true});
           saveHTMLText(enteredText, pageID);
         }
       });

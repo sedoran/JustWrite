@@ -27,8 +27,8 @@ function autoSavePageContent() {
     if ($('.pageTextArea').length != 0) { 
       var enteredText = $('.pageTextArea').val();
       var pageID = parseInt($($('.pageTextArea')[0]).parents('.page')[0].id);
-
-      saveHTMLText(enteredText, pageID);
+      store.set(pageID, enteredText);
+      console.log('is it stored? Who knows??')
     };
   }, 5000);
 }; // end of autoSavePageContent
@@ -42,10 +42,10 @@ function saveHTMLText(enteredText, pageID) {
   });
 
   activePage.save({text: enteredTextHTML},
+            {silent: true},
             {success: function(page, response) {
-              console.log('***page text/header successfully saved: '+page.id);
-            }},
-            {silent: true}
+              console.log('***page text successfully saved: '+page.id);
+            }}
   );
 };// end of saveHTMlText
 

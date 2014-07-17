@@ -105,3 +105,7 @@
     height: 75%;
     overflow: auto;
 }
+
+.ui-icon-gripsmall-diagonal-se {
+    z-index: inherit !important;
+}
