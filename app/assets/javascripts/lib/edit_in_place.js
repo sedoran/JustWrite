@@ -48,7 +48,6 @@ function setEditableElements() {
       callback: function(unused, enteredText) {
         project.save({name: enteredText},
                       {success: function(project, response) {
-                        debugger;
                         $('.project-title').html(project.get('name'))
                         console.log('$$$project name save: '+ project.get('id'))
                       }})

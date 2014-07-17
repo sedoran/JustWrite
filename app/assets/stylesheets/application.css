@@ -16,7 +16,11 @@
  */
 
 
-body {
+ /*font-family: 'Ubuntu Mono', ;*/
+ /*font-family: 'Comfortaa', cursive;*/
+ /*h1 { font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; }*/
+
+ body {
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
@@ -44,6 +48,31 @@ header {
 
 .title {
     text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700; 
+    font-size: 3.8em;
+}
+
+.project-title {
+    text-align: right;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400; 
+    font-size: 2em;
+    width: 50%;
+    float: right;
+}
+
+h2, h3 {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;    
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
 }
 
 .new-page {
@@ -66,7 +95,6 @@ header {
     height: 500px;
     float: right;
     margin-top: 1%;
-    /*overflow: auto;*/
 }
 
 .clear {
@@ -78,11 +106,18 @@ header {
 
 .projects {
     overflow: auto;
-
     max-height: 80%;
     margin-bottom: 5%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700; 
+    font-size: 1em;
 }
 
+ul {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400; 
+    font-size: .75em;
+}
 
 .surface {
     float: left;
@@ -114,6 +149,17 @@ header {
 .page-header {
     width: 100%;
     margin-bottom: 5%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400; 
+    font-size: .75em;
+}
+
+.page-footer {
+    width: 100%;
+    margin-bottom: 5%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400; 
+    font-size: .75em;   
 }
 
 .pageTextArea {
@@ -121,6 +167,9 @@ header {
     resize: none;
     outline: none;
     border: none;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 400; 
+    font-size: 18px;
 }
 
 .pageTextField {
@@ -141,6 +190,9 @@ header {
 .text {
     height: 75%;
     overflow: auto;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 400; 
+    font-size: 18px;
 }
 
 .ui-icon-gripsmall-diagonal-se {
