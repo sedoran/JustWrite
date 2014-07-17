@@ -220,7 +220,7 @@ $.extend(InlineEditor.prototype, {
 	// This meant line breaks would be visible in both the html view of the edit-in-place
 	// window and the form view
 	saveOriginalValue: function() {
-		debugger;
+
 		if (this.settings.use_html) {
 			var tempValue = this.dom.html();
 			var regex = /<br\s*[\/]?>/gi;

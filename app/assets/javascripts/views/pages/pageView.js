@@ -23,7 +23,7 @@ JustWrite.Views.PageView = Backbone.View.extend({
             
     this.$el.attr('id', this.model.get('id'))
             .addClass('page')
-            .draggable()
+            .draggable({stack: ".page"})
             .resizable({handles: {'se': '#segrip'}});         
     console.log("... page view is being created... id: "+this.$el.attr('id'));
     return this;

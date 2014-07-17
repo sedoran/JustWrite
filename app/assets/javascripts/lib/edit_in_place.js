@@ -39,5 +39,9 @@ function setEditableElements() {
       });
     }); // end of pageContents
 
+
+    var projectNames = $('.project-name');
+    
+
   }; // end of if
 }; //end of setEditableElements
