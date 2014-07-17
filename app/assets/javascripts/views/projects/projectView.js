@@ -29,19 +29,17 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
 
   getPages: function() {    
     if (window.currentProject != null && window.currentProject.get("pages").length > 0) {
-      $('.project-title').remove();
+      $('.project-title').empty();
       saveCurrentPageDimensions();
       window.currentProject = this.model;
     } else {
-      $('.project-title').remove();
+      $('.project-title').empty();
       window.currentProject = this.model;
     };
 
     this.model.get('pages').fetch({silent: true});
 
-    $('header').append('<h2 class="project-title title editable">');
-
-    $('.project-title').html(window.currentProject.get('name'));
+    $($('.project-title')[0]).text(window.currentProject.get('name'));
 
     store.clear(); 
     setEditableElements();
@@ -56,10 +54,10 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   deleteProject: function() {
     console.log('deleted project: '+this.model.get('id'));
     this.model.destroy();
-    if (window.currentProject === this){
+    if (window.currentProject === this.Models){
+      $('.project-title').empty();
       $('.surface').empty(); 
     }
-    $('.project-title').remove();
     window.currentProject = null;
   }
 });

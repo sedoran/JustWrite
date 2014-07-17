@@ -17,7 +17,7 @@
 
 
  /*font-family: 'Ubuntu Mono', ;*/
- /*font-family: 'Comfortaa', cursive;*/
+ /*font-family: 'Quicksand', sans-serif;*/
  /*h1 { font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; }*/
 
  body {
@@ -48,22 +48,22 @@ header {
 
 .title {
     text-align: center;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700; 
     font-size: 3.8em;
+    margin-top: 0;
 }
 
 .project-title {
-    text-align: right;
-    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 400; 
     font-size: 2em;
-    width: 50%;
-    float: right;
+    margin: -30px;
 }
 
 h2, h3 {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;    
 }
 
@@ -77,9 +77,12 @@ h3 {
 
 .new-page {
     border: solid 1px darkgrey;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;   
     padding: .5%;
-    margin-top: 1%;
-    margin-left: 2.5%;
+    position: fixed;
+    top: 30px;
+    left: 30px;
     height: 1.5vw;
     width: 1.5vw;
     text-align: center;
@@ -88,6 +91,8 @@ h3 {
 }
 
 .sidebar {
+    position: relative;
+    top: -100px;
     border: solid 1px darkgrey;
     padding: .5%;
     margin: 0;
@@ -108,15 +113,15 @@ h3 {
     overflow: auto;
     max-height: 80%;
     margin-bottom: 5%;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700; 
     font-size: 1em;
 }
 
 ul {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 400; 
-    font-size: .75em;
+    font-size: 1em;
 }
 
 .surface {
@@ -149,7 +154,7 @@ ul {
 .page-header {
     width: 100%;
     margin-bottom: 5%;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;   
     font-weight: 400; 
     font-size: .75em;
 }
@@ -157,7 +162,7 @@ ul {
 .page-footer {
     position: absolute;
     width: 100%;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Quicksand', sans-serif;   
     font-weight: 400; 
     font-size: .75em; 
     bottom: 10px;
