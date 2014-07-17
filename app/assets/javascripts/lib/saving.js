@@ -53,7 +53,7 @@ function saveHTMLText(enteredText, pageID) {
 function savePage(pages, left, top) {
   pages.create(
     { 
-      name: 'New Page', 
+      name: 'New Page...', 
       text: "Click anywhere in this window to start writing...", 
       left: left, 
       top: top 
