@@ -36,13 +36,10 @@ function setEditableElements() {
 
     var projectName = $('.editable');
 
-
-
     projectName.editInPlace({
-      // default_text: "New Project...",
+      default_text: "New Project...",
       callback: function(unused, enteredText) {
         var project = window.currentProject;
-        debugger;
         project.save(
           {name: enteredText},
           {success: function(project, response) {

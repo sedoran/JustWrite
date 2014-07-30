@@ -74,7 +74,7 @@ function savePage(pages, left, top) {
     },
     {
       success: function(page, response) {
-        console.log('created page has been saved: '+page.get('id'))
+        console.log('created page has been saved, id: '+page.get('id'))
         setEditableElements();
       }
     }

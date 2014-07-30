@@ -37,11 +37,11 @@ window.JustWrite = {
 
         $('.surface').empty();
 
-        window.currentProject = window.projects.create({name: "New Project Boo"});
+        window.currentProject = window.projects.create({name: "New Project..."});
       } else {
         $('project-title').empty();
 
-        window.currentProject = window.projects.create({name: "New Project Bam"});
+        window.currentProject = window.projects.create({name: "New Project..."});
       };
 
       $($('.project-title')[0]).text(window.currentProject.get('name'));
