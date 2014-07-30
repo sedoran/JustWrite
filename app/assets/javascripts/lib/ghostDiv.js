@@ -9,11 +9,11 @@ function ghostClick() {
 
       savePage(pages, left, top);  
     } else {
-      window.currentProject = projects.create(
-        { name: "New Project" }, 
+      window.currentProject = window.projects.create(
+        { name: "New Project..." }, 
         { success: function(newProject) {
           var pages = window.currentProject.get('pages');
-          pages.url = '/projects/'+newProject.get('id')+'/pages';
+          pages.url = '/projects/' + newProject.get('id') + '/pages';
 
           savePage(pages, left, top);
         }

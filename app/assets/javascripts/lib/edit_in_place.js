@@ -1,5 +1,5 @@
 function setEditableElements() {
-  
+
   if (window.currentProject != null && window.currentProject.get('pages').length > 0){
 
     var pageHeaders = $('.page-header');
@@ -30,20 +30,29 @@ function setEditableElements() {
       });
     }); // end of pageContents
 
+  }; // end of if
+
+  if (window.currentProject != null && window.currentProject.get('pages').length >= 0){
 
     var projectName = $('.editable');
-    var project = window.currentProject;
+
+
 
     projectName.editInPlace({
-      default_text: "New Project...",
+      // default_text: "New Project...",
       callback: function(unused, enteredText) {
-        project.save({name: enteredText},
-                      {success: function(project, response) {
-                        $('.project-title').html(project.get('name'))
-                        console.log('$$$project name save: '+ project.get('id'))
-                      }})
+        var project = window.currentProject;
+        debugger;
+        project.save(
+          {name: enteredText},
+          {success: function(project, response) {
+            $('.project-title').html(project.get('name'))
+            console.log('$$$project NAME saved project id: '+ project.get('id'))
+            } 
+          })
       }
     }); // end of projectName
 
   }; // end of if
+
 }; //end of setEditableElements

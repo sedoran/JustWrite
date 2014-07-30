@@ -30,8 +30,25 @@ window.JustWrite = {
 
 
     $('.new-project').click(function() {
-      window.projects.create({name: "New Project"});
-      // need to load new project as current project on surface
+      if (window.currentProject != null && window.currentProject.get('pages').length > 0){
+        $('.project-title').empty();
+
+        saveCurrentPageDimensions();
+
+        $('.surface').empty();
+
+        window.currentProject = window.projects.create({name: "New Project Boo"});
+      } else {
+        $('project-title').empty();
+
+        window.currentProject = window.projects.create({name: "New Project Bam"});
+      };
+
+      $($('.project-title')[0]).text(window.currentProject.get('name'));
+
+      store.clear();
+      setEditableElements();
+
     });
 
   } // end of initialize fn

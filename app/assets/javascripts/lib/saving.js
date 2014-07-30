@@ -50,8 +50,6 @@ function saveHTMLText(enteredText, pageID) {
 };// end of saveHTMlText
 
 
-
-
 function savePageHeader(enteredText, pageID) {
   var activePage = _.find(window.currentProject.get('pages').models, function(page) {
     return page.id === pageID;
