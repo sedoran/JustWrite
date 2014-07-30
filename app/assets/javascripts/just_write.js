@@ -31,6 +31,7 @@ window.JustWrite = {
 
     $('.new-project').click(function() {
       window.projects.create({name: "New Project"});
+      // need to load new project as current project on surface
     });
 
   } // end of initialize fn

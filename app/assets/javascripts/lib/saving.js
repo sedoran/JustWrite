@@ -44,10 +44,26 @@ function saveHTMLText(enteredText, pageID) {
   activePage.save({text: enteredTextHTML},
             // {silent: true},
             {success: function(page, response) {
-              console.log('***page text successfully saved: '+page.id);
+              console.log('***page TEXT successfully saved for page id: '+page.id);
             }}
   );
 };// end of saveHTMlText
+
+
+
+
+function savePageHeader(enteredText, pageID) {
+  var activePage = _.find(window.currentProject.get('pages').models, function(page) {
+    return page.id === pageID;
+  });
+
+  activePage.save({name: enteredText},
+            // {silent: true},
+            {success: function(page, response) {
+              console.log('***page HEADER successfully saved for page id: '+page.id);
+            }}
+  );
+};// end of savePageHeader
 
 
 function savePage(pages, left, top) {
