@@ -18,15 +18,27 @@ window.JustWrite = {
     $('.drop-down').click(function() {
 
       if ($('.project-drop-down').is(':visible')){
-        $('.project-drop-down').hide('slide', {direction: "up"}, '400', function(arguments) {
+
+        $('.project-drop-down').hide('slide', {direction: "up"}, '400', function() {
+
            $('.menu').hide('slide', {direction: "up"}, '400');
+
         });
-      } else if ($('.menu').is(':visible')){
+
+      } else 
+      
+      if ($('.menu').is(':visible')){
+
         $('.menu').hide('slide', {direction: "up"}, '400');
+
       } else {
+
         $('.menu').show('slide', {direction: "up"}, '400', function() {
+
           if ($('.menu').is(':visible')) {
+
             $('.menu').css('display', 'inline-block');
+
           };
         });
       };
@@ -84,6 +96,10 @@ window.JustWrite = {
       setEditableElements();
 
     });
+
+    $('body').click(function(e) {
+      console.log(e.target);
+    })
 
   } // end of initialize fn
 }; // end of object definition
