@@ -22,9 +22,9 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
   },
 
   events: {
-    'click p.project-name': 'getPages',
+    'click div.project-name': 'getPages',
     'click p.project-title': 'editProjectName',
-    'click p.delete-project': 'deleteProject',
+    'click div.delete-project': 'deleteProject',
   },
 
   getPages: function() {    
