@@ -60,19 +60,20 @@
 .menu {
     display: none;
     float: left;
-    width: 30%;
+    width: 40%;
 }
 
 .menu-heading {
     display: inline-block;
     position: relative;
-    width: 30%;
-    text-align: center;
+    width: 28%;
     cursor: pointer;
 }
 
 .title {
-
+    font-weight: 400;
+    font-size: 1.5em !important;
+    width: 40%
 }
 
 .sub-title {
@@ -160,7 +161,7 @@ h3 {
 
 .page {
     height: 50vh;
-    width: 30vw;
+    width: 50vw;
     border: solid 1px darkgrey;
     position: absolute !important;
     overflow:hidden;
@@ -215,7 +216,7 @@ h3 {
 }
 
 .text {
-    /*width: 98%;*/
+    width: 98%;
     height: 75%;
     overflow: auto;
     font-family: 'PT Mono', monospace;

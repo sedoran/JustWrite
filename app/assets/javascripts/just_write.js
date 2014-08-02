@@ -18,13 +18,13 @@ window.JustWrite = {
     $('.drop-down').click(function() {
       if ($('.project-drop-down').is(':visible')){
         $('.project-drop-down').hide('slide', {direction: "up"}, '400', function() {
-           $('.menu').hide('slide', {direction: "up"}, '400');
+           $('.menu').hide('slide', {direction: "up"}, 200);
         });
       } else 
       if ($('.menu').is(':visible')){
-        $('.menu').hide('slide', {direction: "up"}, '400');
+        $('.menu').hide('slide', {direction: "up"}, 200);
       } else {
-        $('.menu').show('slide', {direction: "up"}, '400', function() {
+        $('.menu').show('slide', {direction: "up"}, 200, function() {
           if ($('.menu').is(':visible')) {
             $('.menu').css('display', 'inline-block');
           };
@@ -37,9 +37,9 @@ window.JustWrite = {
     $('.projects').click(function() {
 
       if ($('.project-drop-down').is(':visible')){
-        $('.project-drop-down').hide('slide', {direction: "up"}, '400');
+        $('.project-drop-down').hide('slide', {direction: "up"}, 200);
       } else { 
-        $('.project-drop-down').show('slide', {direction: "up"}, '400', function() {
+        $('.project-drop-down').show('slide', {direction: "up"}, 200, function() {
           if ($('.project-drop-down').is(':visible')){
             $('.project-drop-down').css('position', 'absolute');
           };
@@ -85,9 +85,9 @@ window.JustWrite = {
 
     });
 
-    $('body').click(function(e) {
-      console.log(e.target);
-    })
+    // $('body').click(function(e) {
+    //   console.log(e.target);
+    // })
 
   } // end of initialize fn
 }; // end of object definition
