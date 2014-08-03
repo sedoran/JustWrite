@@ -94,6 +94,7 @@ function saveNewPage(pages, left, top) {
     success: function(page, response) {
       console.log('created page has been saved, id: '+page.get('id'))
       setEditableElements();
+      saveCurrentPageDimensions();
     }
   }
   );
