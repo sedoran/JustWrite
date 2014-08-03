@@ -71,6 +71,7 @@ h3 {
 }
 
 .project-title {
+    font-weight: 300;
     position: absolute;
     text-align: center;
     width: 30%;
@@ -177,7 +178,7 @@ h3 {
 .ghost {
     background-color: white;
     position: absolute;
-    height: 50vh;
+    height: 75vh;
     width: 50vw;
     border: solid 1px darkgrey;
     cursor: move;
@@ -187,12 +188,13 @@ h3 {
 }
 
 .page {
-    height: 50vh;
+    height: 75vh;
     width: 50vw;
     border: solid 1px darkgrey;
     position: absolute !important;
     overflow:hidden;
     background-color: white;
+    z-index: 3;
 }
 
 .page-header {
@@ -205,6 +207,7 @@ h3 {
 }
 
 .page-name {
+    font-weight: 400;
     position: absolute;
     text-align: center;
     width: 90%;

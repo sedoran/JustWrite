@@ -1,6 +1,6 @@
 function setEventListeners() {
 
-  $('.surface').droppable({
+  $('body').droppable({
     drop: function(event, ui) {saveCurrentPageDimensions()}
   });
 
@@ -75,7 +75,7 @@ function setEventListeners() {
 
       saveCurrentPageDimensions();
 
-      $('.surface').empty();
+      $('.page').remove();
 
       window.currentProject = window.projects.create({name: "New Project..."});
     } else {

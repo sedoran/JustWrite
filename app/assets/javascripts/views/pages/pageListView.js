@@ -8,7 +8,7 @@ JustWrite.Views.PageListView = Backbone.View.extend({
   },
   render: function() {
     var that = this;
-    this.$el.empty();
+    $(".page").remove();
     
     _.each(this.collection.models, function(page) {
       var pageView = new JustWrite.Views.PageView({
