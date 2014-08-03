@@ -7,7 +7,7 @@ function ghostClick() {
     if (window.currentProject != null) {
       var pages = window.currentProject.get('pages');
 
-      savePage(pages, left, top);  
+      saveNewPage(pages, left, top);  
     } else {
       window.currentProject = window.projects.create(
         { name: "New Project..." }, 
@@ -15,7 +15,7 @@ function ghostClick() {
           var pages = window.currentProject.get('pages');
           pages.url = '/projects/' + newProject.get('id') + '/pages';
 
-          savePage(pages, left, top);
+          saveNewPage(pages, left, top);
         }
       });
     };

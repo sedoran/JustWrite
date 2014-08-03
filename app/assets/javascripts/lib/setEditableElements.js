@@ -2,13 +2,13 @@ function setEditableElements() {
 
   if (window.currentProject != null && window.currentProject.get('pages').length > 0){
 
-    var pageHeaders = $('.page-header');
-    $.each(pageHeaders, function(i, header) {
-      var pageID = parseInt(header.parentElement.id);
+    var pageNames = $('.page-name');
+    $.each(pageNames, function(i, name) {
+      var pageID = parseInt(name.parentElement.parentElement.id);
 
       $(this).editInPlace({
         field_type: "text",
-        default_text: "New Page...",
+        default_text: "Page Title...",
         callback: function(unused, enteredText) {
           savePageHeader(enteredText, pageID)
         }
@@ -37,6 +37,7 @@ function setEditableElements() {
     var projectName = $('.editable');
 
     projectName.editInPlace({
+      // text_size: 18,
       default_text: "New Project...",
       callback: function(unused, enteredText) {
         var project = window.currentProject;

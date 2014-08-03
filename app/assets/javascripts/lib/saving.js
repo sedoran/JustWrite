@@ -1,4 +1,5 @@
 function saveCurrentPageDimensions(options) {
+
   if (window.currentProject != null && window.currentProject.get('pages').length > 0){
 
     var pages = window.currentProject.get('pages');
@@ -21,63 +22,80 @@ function saveCurrentPageDimensions(options) {
 }; // end of saveCurrentPageDimensions
 
 
+function getActivePage(pageID) {
+  var activePage = _.find(window.currentProject.get('pages').models, function(page) {
+    return page.id === pageID;
+  });
+  return activePage;
+}
+
 function autoSavePageContent() {
   setInterval(function() {
 
     if ($('.pageTextArea').length != 0) { 
       var enteredText = $('.pageTextArea').val();
+      
       var pageID = parseInt($($('.pageTextArea')[0]).parents('.page')[0].id);
+      
       store.set(pageID, enteredText);
       console.log('is it stored? Who knows??')
     };
   }, 5000);
+
 }; // end of autoSavePageContent
 
 
 function saveHTMLText(enteredText, pageID) {
   var enteredTextHTML = enteredText.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
-  var activePage = _.find(window.currentProject.get('pages').models, function(page) {
-    return page.id === pageID;
-  });
+  var activePage = getActivePage(pageID);
 
   activePage.save({text: enteredTextHTML},
             // {silent: true},
             {success: function(page, response) {
               console.log('***page TEXT successfully saved for page id: '+page.id);
             }}
-  );
+            );
 };// end of saveHTMlText
 
 
-function savePageHeader(enteredText, pageID) {
-  var activePage = _.find(window.currentProject.get('pages').models, function(page) {
-    return page.id === pageID;
-  });
 
-  activePage.save({name: enteredText},
-            // {silent: true},
-            {success: function(page, response) {
-              console.log('***page HEADER successfully saved for page id: '+page.id);
-            }}
-  );
+function savePageHeader(enteredText, pageID) {
+
+  var activePage = getActivePage(pageID);
+
+  if (enteredText.match(/S/g) !== null){
+    activePage.save(
+      {name: enteredText},
+      {success: function(page, response) {
+        console.log('***page HEADER successfully saved for page id: '+page.id);
+        }
+      }); 
+  } else {
+    activePage.save(
+      {name: "Page Title..."},
+      {success: function(page, response) {
+        console.log('***page HEADER saved with DEFAULT text for page id: '+page.id);
+        }
+      });
+  };
 };// end of savePageHeader
 
 
-function savePage(pages, left, top) {
+function saveNewPage(pages, left, top) {
   pages.create(
-    { 
-      name: 'New Page...', 
-      text: "Click anywhere in this window to start writing...", 
-      left: left, 
-      top: top 
-    },
-    {
-      success: function(page, response) {
-        console.log('created page has been saved, id: '+page.get('id'))
-        setEditableElements();
-      }
+  { 
+    name: 'Page Title...', 
+    text: "Click anywhere in this window to start writing...", 
+    left: left, 
+    top: top 
+  },
+  {
+    success: function(page, response) {
+      console.log('created page has been saved, id: '+page.get('id'))
+      setEditableElements();
     }
+  }
   );
 }; //end of savePage
 

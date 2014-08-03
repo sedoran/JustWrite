@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery.ui.all
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -21,7 +22,7 @@
  /*h1 { font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; }*/
 
 
-
+ /***** BASE *****/
 
  body {
     margin-top: 0px;
@@ -36,18 +37,37 @@
     left: 0;
 }
 
+h1, h2, h3, .header, .project-title, .project-title .inplace_field, .page-header, .page-header, .page-text-field, .page-footer {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 300; 
+    font-size: 2em;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 2em;
+}
+
+h3 {
+    font-weight: 300; 
+    font-size: 1em;
+}
+
+/***** HEADER *****/
 
 .header {
-    font-family: 'Roboto', sans-serif;
     font-weight: 300; 
     position: relative;
     top: 20px;
     left: 20px;
     width: 100%;
-    height: 10%;
-    z-index: 5;
-    background-color: rgba(69, 182, 123, 0.8);
-    line-height: 2em;
+    /*height: 10%;*/
+    z-index: 2;
+    background-color: white;
+    line-height: 1.51em;
 }
 
 .project-title {
@@ -57,38 +77,41 @@
     margin: 0 auto;
     left: 0;
     right: 0;
+    /*z-index: -1;*/
 }
 
-.drop-down {
-    display: inline-block;
-    float: left;
-    padding-right: 10px;
-    cursor: pointer;
+.project-title .inplace_field {
+    font-weight: 100;
+    font-size: .9em;
 }
 
 .title {
+    text-align: center;
     font-weight: 400;
     font-size: 1.5em !important;
-    width: 10%;
     float: left;
+}
+
+.drop-down {
+    font-size: 1.5em;
+    display: inline-block;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
 .menu {
     display: none;
     width: 15%;
+    min-width: 175px;
 }
 
 .menu-heading {
+    text-align: center;
+    padding-right: 5%;
     display: inline-block;
-    /*position: relative;*/
-    padding-right: 10px;
     cursor: pointer;
-}
-
-
-
-.sub-title {
-
 }
 
 .projects {
@@ -101,11 +124,18 @@
 
 .project-drop-down {
     position: absolute;
-    background-color: rgba(69, 182, 123, 0.8);
+    background-color: white;
     display: none;
+    cursor: auto;
+    border-left: solid 1px darkgrey;
+    border-right: solid 1px darkgrey;
+    border-bottom: solid 1px darkgrey;
 }
 
 .new-project {
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px
 
 }
 
@@ -115,43 +145,26 @@
     list-style: none;
 }
 
-
 .project {
-    display: block;
-    widows: 100%;
+    /*width: 100%;*/
+    text-align: left;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .project-name {
+    cursor: pointer;
     display: inline-block;
-    text-align: left;
 }
 
 .delete-project {
+    cursor: pointer;
     display: inline-block;
     font-weight: 400;
     float: right;
 }
 
-
-h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;    
-}
-
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-weight: 100;
-    font-size: 2em;
-}
-
-h3 {
-    font-size: 1em;
-}
+/***** SURFACE AND PAGES *****/
 
 .surface {
     position: fixed;
@@ -165,12 +178,12 @@ h3 {
     background-color: white;
     position: absolute;
     height: 50vh;
-    width: 30vw;
+    width: 50vw;
     border: solid 1px darkgrey;
     cursor: move;
     opacity: 0.9;
     display: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 .page {
@@ -183,49 +196,31 @@ h3 {
 }
 
 .page-header {
+    position: relative;
     width: 100%;
-    margin-bottom: 5%;
-    font-family: 'Roboto', sans-serif;   
-    font-weight: 400; 
-    font-size: .75em;
+    margin-bottom: 5%;  
+    font-weight: 300; 
+    font-size: 1em;
+    text-align: center;
 }
 
-.page-footer {
+.page-name {
     position: absolute;
-    width: 100%;
-    font-family: 'Roboto', sans-serif;   
-    font-weight: 400; 
-    font-size: .75em; 
-    bottom: 10px;
-    margin-bottom: -5px;
-
-}
-
-.pageTextArea {
-    width: 98%;
-    height: 75%;
+    text-align: center;
+    width: 90%;
     margin: 0 auto;
-    position: absolute;
-    resize: none;
-    outline: none;
-    border: none;
-    font-family: 'PT Mono', monospace; 
-    font-size: 14px;
-    background-color: pink;
+    left: 0;
+    right: 0;
 }
 
-.pageTextField {
-    width: 45%;
-    height: 60%;
+.page-text-field {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1em;
+    width: 90%;
     outline: none;
     border: none;
     margin: 0 auto;
-    display: inline-block;
-}
-
-
-.page-delete {
-    float: left;
     display: inline-block;
 }
 
@@ -235,12 +230,42 @@ h3 {
     height: 75%;
     overflow: auto;
     font-family: 'PT Mono', monospace;
-    font-weight: 400; 
     font-size: 14px;
+}
+
+.page-text-area {
+    width: 98%;
+    height: 75%;
+    margin: 0 auto;
+    position: absolute;
+    resize: none;
+    outline: none;
+    border: none;
+    font-family: 'PT Mono', monospace; 
+    font-size: 14px;
+}
+
+.page-footer {
+    position: absolute;
+    width: 100%;   
+    font-weight: 300; 
+    font-size: .75em; 
+    bottom: 10px;
+    margin-bottom: -5px;
+
+}
+
+.page-delete {
+    float: right;
+    position: relative;
+    left: auto;
+    font-weight: 400;
+    width: 5%;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .ui-icon-gripsmall-diagonal-se {
     z-index: inherit !important;
 }
-
-

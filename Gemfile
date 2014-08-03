@@ -42,6 +42,7 @@ gem 'backbone-on-rails'
 gem 'sorcery'
 gem 'jquery-ui-rails'
 gem 'rails_12factor', group: :production
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'pry-rails'

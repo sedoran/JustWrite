@@ -45,7 +45,7 @@ $.fn.editInPlace = function(options) {
 /// Required Options: Either url or callback, so the editor knows what to do with the edited values.
 $.fn.editInPlace.defaults = {
 	url:				"", // string: POST URL to send edited content
-	bg_over:			"#ffc", // string: background color of hover of unactivated editor
+	bg_over:			"#f4f4f4", // string: background color of hover of unactivated editor
 	bg_out:				"transparent", // string: background color on restore from hover
 	hover_class:		"",  // string: class added to root element during hover. Will override bg_over and bg_out
 	show_buttons:		false, // boolean: will show the buttons: cancel or save; will automatically cancel out the onBlur functionality
@@ -238,7 +238,7 @@ $.extend(InlineEditor.prototype, {
 	// with <br> tags
 	setClosedEditorContent: function(aValue) {
 		if (this.settings.use_html){
-			var HTMLValue = aValue.replace(/\n/g, '<br>');
+			var HTMLValue = aValue.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			this.dom.html(HTMLValue);
 		} else {
 			this.dom.text(aValue);
@@ -275,9 +275,9 @@ $.extend(InlineEditor.prototype, {
 		if ("select" === this.settings.field_type)
 			editor = this.createSelectEditor();
 		else if ("text" === this.settings.field_type)
-			editor = $('<input type="text" name="inplace_value" class="inplace_field pageTextField" size="' + this.settings.text_size  + '" />');
+			editor = $('<input type="text" name="inplace_value" class="inplace_field page-text-field" size="' + this.settings.text_size  + '" />');
 		else if ("textarea" === this.settings.field_type)
-			editor = $('<textarea name="inplace_value" class="inplace_field pageTextArea" rows="' + this.settings.textarea_rows + '" '
+			editor = $('<textarea name="inplace_value" class="inplace_field page-text-area" rows="' + this.settings.textarea_rows + '" '
 				+ ' cols="' + this.settings.textarea_cols + '" />');
 		
 		return editor;
