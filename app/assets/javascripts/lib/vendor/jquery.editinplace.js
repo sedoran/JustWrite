@@ -216,9 +216,9 @@ $.extend(InlineEditor.prototype, {
 		return 0 !== elementsMatchingCancelSelector.length;
 	},
 	
-	// Steven: I hacked this function so that <br> elements would be replaces with \n.
-	// This meant line breaks would be visible in both the html view of the edit-in-place
-	// window and the form view
+	// Steven: I changed this function so that <br> elements would 
+	//be replaces with \n.
+	// This meant line breaks would be visible in both the html //view of the edit-in-place window and the form view
 	saveOriginalValue: function() {
 
 		if (this.settings.use_html) {
@@ -233,12 +233,16 @@ $.extend(InlineEditor.prototype, {
 	restoreOriginalValue: function() {
 		this.setClosedEditorContent(this.originalValue);
 	},
-	
+
+	//Steven: I changed this as above to replace linebreaks
+	// with <br> tags
 	setClosedEditorContent: function(aValue) {
-		if (this.settings.use_html)
-			this.dom.html(aValue);
-		else
+		if (this.settings.use_html){
+			var HTMLValue = aValue.replace(/\n/g, '<br>');
+			this.dom.html(HTMLValue);
+		} else {
 			this.dom.text(aValue);
+		};	
 	},
 	
 	workAroundMissingBlurBug: function() {
