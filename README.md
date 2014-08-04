@@ -11,6 +11,6 @@ Just Write is an app that allows you to do exactly what it says: just write. Bla
 
 ####Relevant Links
 
-* Heroku: http://www.justwrite.herokuapp.com
+* Heroku: http://justwrite.herokuapp.com
 * Github: https://github.com/pantsonsteven/JustWrite
 * Trello: https://trello.com/b/wLdlIwGs/justwrite
