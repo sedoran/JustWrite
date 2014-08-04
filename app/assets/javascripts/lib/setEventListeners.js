@@ -4,6 +4,10 @@ function setEventListeners() {
     drop: function(event, ui) {saveCurrentPageDimensions()}
   });
 
+  $( ".page" ).on("resizestop", function() {
+    console.log('boom')
+  });
+
   $('.drop-down').click(function() {
     if ($('.project-drop-down').is(':visible')){
 
@@ -32,7 +36,7 @@ function setEventListeners() {
 
       });
     };
-    }); //end menu slide
+  }); //end menu slide
 
 
   $('.projects').click(function() {
@@ -53,7 +57,7 @@ function setEventListeners() {
         $('.project-arrow').removeClass('fa-angle-down').addClass('fa-angle-up');
       });
     };
-    }); // end project slide
+  }); // end project slide
 
 
   $('.new-page').mouseup(function(e){
@@ -100,7 +104,7 @@ function setEventListeners() {
     //   $(e.target).css('cursor', 'auto');
     // });
 
-    // $('body').click(function(e) {
+    // $('body').mouseup(function(e) {
     //   console.log(e.target);
     // })
 }

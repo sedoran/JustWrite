@@ -51,7 +51,6 @@ function saveHTMLText(enteredText, pageID) {
   var activePage = getActivePage(pageID);
 
   activePage.save({text: enteredTextHTML},
-            // {silent: true},
             {success: function(page, response) {
               console.log('***page TEXT successfully saved for page id: '+page.id);
             }}
@@ -64,7 +63,7 @@ function savePageHeader(enteredText, pageID) {
 
   var activePage = getActivePage(pageID);
 
-  if (enteredText.match(/S/g) !== null){
+  if (enteredText.match(/\S/g) !== null){
     activePage.save(
       {name: enteredText},
       {success: function(page, response) {
