@@ -49,30 +49,25 @@ JustWrite.Views.PageView = Backbone.View.extend({
   },
 
   downloadFile: function(pageID, fileName, text) {
-    var el = $("#"+pageID).children()[2];
+    var el = $("#"+pageID).find('.page-footer');
 
     var oldText = $(el).html();
     
-
     $(el).html("<a class='download-link' href=''>" + oldText + "</a>");
-
-    $(el).addClass('inactive-download').removeClass('page-download')
+    $(el).addClass('inactive-download').removeClass('page-download');
 
     $('.download-link').attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)).attr('download', fileName);
-
     $('.download-link')[0].click();
 
     $(el).html(oldText);
 
     $('.inactive-download').addClass('page-download').removeClass('inactive-download');
 
-    console.log('downloaded bitch');
+    console.log('page:'+pageID+" has been downloaded");
   },
-
 
   createTextFile: function(e) {
     var that = this;
-
 
     var page = this.model;   
     var pageID = page.id; 
@@ -87,9 +82,10 @@ JustWrite.Views.PageView = Backbone.View.extend({
     var enteredHTMLText = enteredText.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
     page.save({text: enteredHTMLText}, {success: function() {
-      console.log('saved bitch');
+      console.log('page:'+pageID+" has been saved through download link");
+      
       page.sync("read", page, {success: function(pageJSON) {
-        console.log("read bitch");
+        console.log('page:'+pageID+" has been retreived from the DB");
 
         var fileName = pageJSON.name.replace('.', '').replace(' ', '_')+".txt";
         var fileText = pageJSON.text.replace(/<br\s*[\/]?>/gi, '\n');
