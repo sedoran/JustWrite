@@ -34,10 +34,10 @@ function getActivePage(pageID) {
 function autoSavePageContent() {
   setInterval(function() {
 
-    if ($('.pageTextArea').length != 0) { 
-      var enteredText = $('.pageTextArea').val();
+    if ($('.page-text-area').length != 0) { 
+      var enteredText = $('.page-text-area').val();
       
-      var pageID = parseInt($($('.pageTextArea')[0]).parents('.page')[0].id);
+      var pageID = parseInt($($('.page-text-area')[0]).parents('.page')[0].id);
       
       store.set(pageID, enteredText);
       console.log('is it stored? Who knows??')
