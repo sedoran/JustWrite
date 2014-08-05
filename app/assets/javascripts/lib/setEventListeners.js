@@ -1,5 +1,26 @@
 function setEventListeners() {
 
+  setHelpContainerClick();
+
+  $('.help-icon').click(function() {
+    if ($(".help-container").is(":visible")){
+    } else {
+      $('.help-container').fadeIn(250, function() {
+        setHelpContainerClick();
+      });
+    };
+  });
+
+  function setHelpContainerClick() {
+   if($('.help-container').is(':visible')){
+     $('.help-container').click(function() {
+      $('.help-container').fadeOut(150, function() {
+        $('help-container').unbind('click');
+      });
+    })
+   };
+  }
+
   $('body').droppable({
     drop: function(event, ui) {saveCurrentPageDimensions()}
   });
@@ -104,7 +125,7 @@ function setEventListeners() {
     //   $(e.target).css('cursor', 'auto');
     // });
 
-    // $('body').click(function(e) {
-    //   console.log(e.target);
-    // })
+$('body').click(function(e) {
+  console.log(e.target);
+})
 }
