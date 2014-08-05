@@ -57,7 +57,7 @@ JustWrite.Views.ProjectView = Backbone.View.extend({
     if (window.currentProject === this.model){
       $('.project-title').empty();
       $('.page').remove(); 
+      window.currentProject = null;
     }
-    window.currentProject = null;
   }
 });
