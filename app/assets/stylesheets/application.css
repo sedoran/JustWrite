@@ -76,6 +76,7 @@ a {
     background-color: white;
     border: solid 1px darkgrey;
     overflow: scroll;
+    z-index: 10;
 }
 /*
 .close-help {
@@ -141,7 +142,6 @@ a {
     margin: 0 auto;
     left: 0;
     right: 0;
-    /*z-index: -1;*/
 }
 
 .project-title .inplace_field {
@@ -206,7 +206,6 @@ a {
     cursor: pointer;
     padding-left: 5px;
     padding-right: 5px
-
 }
 
 .project-list {
@@ -265,7 +264,7 @@ a {
 .page-header {
     position: relative;
     width: 100%;
-    margin-bottom: 1%;
+    margin-bottom: 5%;
 }
 
 .page-text-field {
@@ -278,6 +277,7 @@ a {
     border: none;
     margin: 0 auto;
     display: inline-block;
+    margin-bottom: 5%;
 }
 
 .page-name {
@@ -285,6 +285,7 @@ a {
     float:left;
     width: 49%;
     margin: 0;
+    font-weight: 300;
 }
 
 .page-header-items-envelope {
@@ -305,36 +306,35 @@ a {
     margin-left: 5%;
 }
 
-.text {
+.text, .page-text-area{
     margin: 0 auto;
     width: 98%;
-    height: 75%;
+    height: 90%;
     overflow: auto;
     font-family: 'PT Mono', monospace;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .page-text-area {
-    width: 98%;
-    height: 75%;
-    margin: 0 auto;
     position: absolute;
     resize: none;
     outline: none;
-    border: none;
-    font-family: 'PT Mono', monospace; 
-    font-size: 14px;
+    border: none; 
 }
 
 .page-footer {
-    position: absolute;
+    position: absolute;;
     width: 100%;   
     font-weight: 300; 
     font-size: .75em; 
     bottom: 10px;
     margin-bottom: -5px;
-
 }
+
+.page-download {
+    cursor: pointer;
+}
+
 
 
 .ui-icon-gripsmall-diagonal-se {

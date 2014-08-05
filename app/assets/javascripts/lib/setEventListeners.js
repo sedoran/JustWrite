@@ -113,7 +113,9 @@ function setEventListeners() {
 
     store.clear();
     setEditableElements();
+
   });
+
 
 
     // $('.page').mousedown(function(e) {
@@ -125,7 +127,7 @@ function setEventListeners() {
     //   $(e.target).css('cursor', 'auto');
     // });
 
-$('body').click(function(e) {
-  console.log(e.target);
-})
+  // $('body').click(function(e) {
+  //   console.log(e.target);
+  // })
 }
