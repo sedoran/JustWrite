@@ -1,15 +1,21 @@
 #Just Write
 
-Just Write is an app that allows you to do exactly what it says: just write. Blah blah...
+JustWrite is a writing tool designed to get rid of the distractions posed by typical word-processors. By providing a minimalist working space, JustWrite allows writers to do just that – just write – without having to worry about tabs, paragraph styles, or margin widths.
 
-####Languages, Frameworks etc.
+JustWrite is organized around Projects and Pages. Create as many projects as you want; add as many pages to them as you need. Pages can be resized and moved around the screen as needed, and when you come back they’ll be right where you left them. Everything – including page dimensions –  is auto-saved as you work. When you want to get your writing out of JustWrite, just click “Download”.
 
+####Frameworks etc.
+
+* Backbone.JS
+* Ruby on Rails
+* PostgreSQL
+* jquery-in-place-editor
 * jQuery
-* jQuery-ui
-* Backbone
-* Underscore
+* jQueryUI
+* pry
 
-####Relevant Links
+
+####Links
 
 * Heroku: http://justwrite.herokuapp.com
 * Github: https://github.com/pantsonsteven/JustWrite
