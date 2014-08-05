@@ -1,4 +1,4 @@
-#Just Write
+#JustWrite
 
 JustWrite is a writing tool designed to get rid of the distractions posed by typical word-processors. By providing a minimalist working space, JustWrite allows writers to do just that – just write – without having to worry about tabs, paragraph styles, or margin widths.
 
