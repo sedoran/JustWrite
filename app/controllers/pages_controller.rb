@@ -24,6 +24,11 @@ class PagesController < ApplicationController
     render json: page.to_json
   end
 
+  def download
+    page = Page.find(params[:id])
+    render json: page.to_json
+  end
+
   private
 
   def page_params

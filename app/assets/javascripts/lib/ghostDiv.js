@@ -13,7 +13,10 @@ function ghostClick() {
         { name: "New Project..." }, 
         { success: function(newProject) {
           var pages = window.currentProject.get('pages');
-          pages.url = '/projects/' + newProject.get('id') + '/pages';
+          var pagesUrl = function(){ 
+            return '/projects/' + newProject.get('id') + '/pages'
+          };
+          pages.url = pagesUrl;
 
           saveNewPage(pages, left, top);
         }

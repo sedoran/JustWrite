@@ -104,7 +104,7 @@ function setEventListeners() {
     //   $(e.target).css('cursor', 'auto');
     // });
 
-    // $('body').mouseup(function(e) {
+    // $('body').click(function(e) {
     //   console.log(e.target);
     // })
 }

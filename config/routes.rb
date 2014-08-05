@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # post 'projects/:project_id/pages' => 'pages#create'
   
   put 'projects/:project_id/pages' => 'projects#update_pages'
+
+  get 'projects/:project_id/pages/:id' => 'pages#download'
   
   resources :users, except: [:new, :edit, :show]
   resources :projects, except: [:new, :edit, :show] do 

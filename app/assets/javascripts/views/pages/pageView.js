@@ -15,35 +15,74 @@ JustWrite.Views.PageView = Backbone.View.extend({
     this.$el.html(html);
 
     this.$el.css({
-              left: this.model.get('left')+"px",
-              top: this.model.get('top')+"px",
-              height: this.model.get('height')+"px",
-              width: this.model.get('width')+"px"
-            });
-            
+      left: this.model.get('left')+"px",
+      top: this.model.get('top')+"px",
+      height: this.model.get('height')+"px",
+      width: this.model.get('width')+"px"
+    });
+
     this.$el.attr('id', this.model.get('id'))
-            .addClass('page')
-            .draggable(
-              {stack: ".page"},
-              {containment: "parent"}
-            )
-            .resizable(
-              {handles: {'se': '#segrip'}},
-              {stop: function() {
-                saveCurrentPageDimensions();
-              }}
-            );         
+    .addClass('page')
+    .draggable(
+      {stack: ".page"},
+      {containment: "parent"}
+      )
+    .resizable(
+      {handles: {'se': '#segrip'}},
+      {stop: function() {
+        saveCurrentPageDimensions();
+      }}
+      );         
     console.log("... page view is being created... id: "+this.$el.attr('id'));
     return this;
   },
 
   events: {
-    'click .page-delete': 'deletePage'
+    'click .page-delete': 'deletePage',
+    'click .page-download': 'createTextFile'
   },
 
   deletePage: function() {
-    this.model.destroy();
+    var page = this.model;
+    page.destroy();
     console.log('page was deleted: '+this.model.get('id'))
+  },
+
+  downloadFile: function(el, fileName, text) {
+    debugger;
+    var oldText = $(el).html();
+
+    $(el).html("<a class='download-link' href=''>" + oldText + "</a>");
+
+    $(el).addClass('inactive-download').removeClass('page-download')
+
+    $('.download-link').attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)).attr('download', fileName);
+
+    $('.download-link')[0].click();
+
+    $(el).html(oldText);
+
+    $('.inactive-download').addClass('page-download').removeClass('inactive-download');
+
+    console.log('downloaded bitch');
+  },
+
+  createTextFile: function(e) {
+    var that = this;
+
+    var page = this.model;    
+    var enteredText = page.get('text');
+
+    page.save({text: enteredText}, {success: function() {
+      console.log('saved bitch');
+      page.sync("read", page, {success: function(pageJSON) {
+        console.log("read bitch");
+        var fileName = pageJSON.name.replace('.', '').replace(' ', '_')+".txt";
+        var fileText = pageJSON.text.replace(/<br\s*[\/]?>/gi, '\n');
+
+        that.downloadFile($(e.target), fileName, fileText);
+      }});
+    }});  
   }
 });
 

@@ -14,10 +14,12 @@ function saveCurrentPageDimensions(options) {
 
       page.set({top: top, left: left, height: height, width: width}, {silent: true});
 
-      console.log('saved current dimensions: '+page.get('id'));
+      console.log('saved current dimensions to db: '+page.get('id'));
     });
 
-    pages.sync("update", pages, options);
+    pages.sync("update", pages, {success: function() {
+      console.log('pages for project '+window.currentProject.get('id')+' have been updated in the DB')
+    }});
   };
 }; // end of saveCurrentPageDimensions
 
