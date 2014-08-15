@@ -6,7 +6,7 @@ JustWrite is organized around Projects and Pages. Create as many projects as you
 
 ###Please Note
 
-This project is just a demo and at the present moment requires a lot of clean up and refactoring.
+This project is just a demo and at the present moment requires a lot of clean up and refactoring. Feel free to fork it and submit Pull Requests if you have any improvements. Also, if you feel like writing a user layer on top of the current app that would be much appreciated. Not sure when I'll have time to do that although the database is set up for it.
 
 ##Frameworks etc.
 
